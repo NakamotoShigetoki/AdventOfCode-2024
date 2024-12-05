@@ -8,7 +8,7 @@
 })()
 
 function matrixBuilder(text) {
-    const lines = text.split('\n').slice(0, -1); // L'ultima riga e' vuota, e contiene \n quindi la escludo
+    const lines = text.split('\n').slice(0, -1);
     const matrix = [[],[]]
     lines.forEach(line => {
         const [l, r] = line.split('   ');
@@ -30,8 +30,6 @@ function distance(matrix) {
 }
 
 function similarityScore(matrix) {
-    // I must find how many times each number in the matrix[0] appears in the matrix[1], and sum them
-    // The score is calculated by adding the number of times multiplied per the number to the total score
     let totalScore = 0;
     matrix[0].forEach(l => totalScore += matrix[1].filter(r => r === l).length * l);
 
